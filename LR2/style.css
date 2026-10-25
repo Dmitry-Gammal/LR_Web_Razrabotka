@@ -1,0 +1,594 @@
+/* ============================================ */
+/* === БАЗОВЫЕ СТИЛИ СТРАНИЦЫ === */
+/* ============================================ */
+body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://photobooth.cdn.sports.ru/preset/message/c/a0/f80f0d9d34314b1d24d08b4abed04.jpeg?f=webp&q=90&s=2x&w=730');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================================ */
+/* === КАЛЬКУЛЯТОР === */
+/* ============================================ */
+.calculator {
+  display: inline-block;
+  text-align: center;
+  background: rgba(20, 20, 20, 0.85);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  margin: 30px auto;
+}
+
+.my-btn { 
+  margin-right: 8px;
+  margin-top: 8px;
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  border: none;
+  background: #ff9900;
+  color: #0a0a0a;
+  font-size: 1.6rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  transition: transform 0.1s, filter 0.15s, background 0.15s;
+}
+
+.my-btn:last-child {
+  margin-right: 0;
+}
+
+.my-btn:hover {
+  background: rgb(33, 253, 4);
+}
+
+.my-btn:active {
+  filter: brightness(200%);
+  transform: scale(0.95);
+}
+
+.my-btn.primary { 
+  background: #ff2400;
+}
+
+.my-btn.secondary { 
+  background: #a6a6a6;
+}
+
+.my-btn.execute { 
+  width: 226px;
+  border-radius: 16px;
+}
+
+.result { 
+  width: 382px;
+  height: 80px;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  padding: 0 20px;
+  background: rgb(252, 251, 251);
+  color: #ffab02;
+  font-size: 2.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================ */
+/* === ФУТЕР === */
+/* ============================================ */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* ============================================ */
+/* === СОДЕРЖИМОЕ ВКЛАДОК === */
+/* ============================================ */
+.tab-content {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h1,
+.tab-content p {
+  color: white;
+}
+
+.tab-content h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.5rem;
+}
+
+.tab-content p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+/* ============================================ */
+/* === КНОПКА GITHUB === */
+/* ============================================ */
+.github-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: #24292e;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.github-btn:hover {
+  background: #ff9801;
+}
+
+/* ============================================ */
+/* === ГЛАВНАЯ В СТИЛЕ MCLAREN RACING === */
+/* ============================================ */
+
+/* --- Шапка сайта --- */
+.site-header {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-mark {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #111;
+  letter-spacing: 2px;
+}
+
+.logo-sub {
+  font-size: 0.6rem;
+  letter-spacing: 6px;
+  color: #111;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* --- Вкладки в шапке --- */
+.main-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  color: #111;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background: #f0f0f0;
+  color: #ff6600;
+}
+
+.nav-link.active {
+  background: #ff8000;
+  color: #111;
+}
+
+/* ссылка на репозиторий — тёмная, как GitHub */
+.nav-link-repo {
+  background: #24292e;
+  color: white;
+}
+
+.nav-link-repo:hover {
+  background: #3a3f44;
+  color: #ff8000;
+}
+
+/* --- Кнопка Racing Club --- */
+.racing-club {
+  background: #ff8000;
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 8px 100%);
+  transition: background 0.2s;
+}
+
+.racing-club:hover {
+  background: #ff9801;
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7);
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  text-align: left;
+  color: white;
+}
+
+.hero-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin: 0 0 15px;
+  text-transform: uppercase;
+}
+
+.hero-label .orange {
+  color: #ff8000;
+}
+
+.label-mark {
+  color: #ff8000;
+  margin-right: 8px;
+}
+
+.hero-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+}
+
+.hero-title .muted {
+  color: #d0d0d0;
+}
+
+.hero-title .arrow {
+  color: #ff8000;
+  font-size: 3rem;
+}
+
+.hero-subtext {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+  max-width: 520px;
+  margin: 18px 0 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-arrows {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  gap: 4px;
+}
+
+.arrow-btn {
+  width: 55px;
+  height: 45px;
+  border: none;
+  background: #3a3a3a;
+  color: #bbb;
+  font-size: 1.5rem;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.arrow-btn.orange-btn {
+  background: #ff8000;
+  color: #111;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.arrow-btn:hover {
+  background: #ff9801;
+  color: #111;
+}
+
+/* --- 4 новости --- */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  max-width: 1400px;
+  margin: 5px auto 0;
+}
+
+.news-card {
+  background: #3a3a3a;
+  padding: 25px 20px 30px;
+  text-align: left;
+  color: #e0e0e0;
+  cursor: default;
+  user-select: none;
+  border-bottom: 4px solid transparent;
+}
+
+.news-card .news-num {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.news-card .news-text {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.news-card.active-card {
+  background: #1a1a1a;
+  color: white;
+}
+
+.news-card.active-card .news-num {
+  color: #ff8000;
+  font-weight: bold;
+}
+
+.news-card.active-card .stripes,
+.next-gp .stripes {
+  height: 10px;
+  margin-top: 15px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff8000 0 10px,
+    #111 10px 20px
+  );
+}
+
+.stripes.small {
+  height: 8px;
+  margin-top: 20px;
+}
+
+/* --- Нижний ряд --- */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 5px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 10px;
+  align-items: start;
+}
+
+/* --- Блок пилотов --- */
+.drivers {
+  background: #1a1a1a;
+  padding: 30px;
+  text-align: left;
+  color: white;
+}
+
+.section-title {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin: 0 0 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ff8000;
+}
+
+.driver-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.driver {
+  cursor: pointer;
+  overflow: hidden;
+  border: 3px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+  background: #000;
+  position: relative;
+}
+
+.driver:hover {
+  transform: translateY(-4px);
+  border-color: #ff8000;
+}
+
+.driver.selected {
+  border-color: #ff8000;
+}
+
+.driver img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.2) contrast(1.1);
+  transition: filter 0.2s;
+}
+
+.driver:hover img {
+  filter: grayscale(0) contrast(1.2);
+}
+
+.driver p {
+  margin: 0;
+  padding: 14px 15px;
+  background: #000;
+  color: white;
+  text-align: left;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.driver p .num {
+  color: #ff8000;
+  float: right;
+}
+
+/* --- Распределение голосов --- */
+.vote-result {
+  margin-top: 25px;
+  display: none;
+}
+
+.vote-result.visible {
+  display: block;
+  animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vote-title {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: #999;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vote-bar {
+  display: flex;
+  height: 55px;
+  overflow: hidden;
+  font-weight: bold;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.vote-left {
+  flex: 1;
+  background: #ff6600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.vote-right {
+  flex: 1;
+  background: #ff9801;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.vote-bar .percent {
+  font-size: 1.4rem;
+}
+
+/* --- Следующий этап --- */
+.next-gp {
+  background: #1a1a1a;
+  padding: 30px;
+  text-align: left;
+  color: white;
+  border-top: 5px solid #ff8000;
+}
+
+.gp-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 15px;
+}
+
+.gp-dates {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin: 0 0 20px;
+  color: #ff8000;
+  letter-spacing: -1px;
+}
+
+.gp-name {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin: 0 0 15px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.gp-location {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #bbb;
+  font-family: Arial, Helvetica, sans-serif;
+}
