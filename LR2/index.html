@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Главная</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ШАПКА -->
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-mark">MCLAREN</span>
+      <span class="logo-sub">RACING</span>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Главная</a>
+      <a href="calc.html" class="nav-link">Калькулятор</a>
+      <a href="https://github.com/Dmitry-Gammal/LR_Web_Razrabotka" 
+         target="_blank" 
+         class="nav-link nav-link-repo">Репозиторий</a>
+    </nav>
+
+    <a href="#" class="racing-club">Racing Club</a>
+  </header>
+
+  <section class="tab-content active">
+
+    <div class="hero">
+      <img src="https://photobooth.cdn.sports.ru/preset/message/c/a0/f80f0d9d34314b1d24d08b4abed04.jpeg?f=webp&q=90&s=2x&w=730" alt="Hero">
+      <div class="hero-overlay">
+        <p class="hero-label">
+          <span class="label-mark">🏁</span> FORMULA 1 <span class="orange">NEWS</span>
+        </p>
+        <h1 class="hero-title">
+          ФОРМУЛА 1 АНОНСИРОВАЛА ВОЗВРАЩЕНИЕ<br>
+          <span class="muted">В АФРИКУ</span> <span class="arrow">↗</span>
+        </h1>
+        <p class="hero-subtext">
+          Formula 1: новая трасса в Руанде войдёт в календарь в начале 2030-х
+          по долгосрочному соглашению
+        </p>
+      </div>
+
+      <div class="hero-arrows">
+        <button class="arrow-btn">‹</button>
+        <button class="arrow-btn orange-btn">›</button>
+      </div>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card active-card">
+        <div class="news-num">01</div>
+        <p class="news-text">Формула 1: новый этап в Руанде войдёт в календарь в начале 2030-х по долгосрочному соглашению</p>
+        <div class="stripes"></div>
+      </div>
+      <div class="news-card">
+        <div class="news-num">02</div>
+        <p class="news-text">Формула 1: за кулисами маркетингового дня перед Гран-при Сингапура</p>
+      </div>
+      <div class="news-card">
+        <div class="news-num">03</div>
+        <p class="news-text">IndyCar: «Наше сотрудничество с Chevrolet — ключ к победе в чемпионате и в Indy 500»</p>
+      </div>
+      <div class="news-card">
+        <div class="news-num">04</div>
+        <p class="news-text">Формула 1: Ландо подходит к гонкам в лучшей форме и считает, что впереди ещё многое</p>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+
+      <div class="drivers">
+        <h3 class="section-title">Выбери любимого пилота</h3>
+
+        <div class="driver-photos">
+          <div class="driver" data-driver="piastri">
+            <img src="https://i.pinimg.com/736x/6c/82/40/6c824023cdb0a79410c023257b0f82da.jpg" alt="Оскар Пиастри">
+            <p>Оскар Пиастри <span class="num">#81</span></p>
+          </div>
+          <div class="driver" data-driver="norris">
+            <img src="https://photobooth.cdn.sports.ru/preset/wysiwyg/1/5c/64357747048258a95f861ad62c4e7.jpeg?f=webp&q=90&s=2x&w=730" alt="Ландо Норрис">
+            <p>Ландо Норрис <span class="num">#4</span></p>
+          </div>
+        </div>
+
+        <div class="vote-result" id="vote-result">
+          <p class="vote-title">Распределение голосов</p>
+          <div class="vote-bar">
+            <div class="vote-left">
+              <span>Пиастри</span>
+              <span class="percent">50%</span>
+            </div>
+            <div class="vote-right">
+              <span class="percent">50%</span>
+              <span>Норрис</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="next-gp">
+        <p class="gp-label">Следующий этап</p>
+        <p class="gp-dates">23–25<br>ОКТЯБРЯ</p>
+        <p class="gp-name">United States<br>Grand Prix</p>
+        <p class="gp-location">US  Circuit of the Americas, Остин</p>
+        <div class="stripes small"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    ЛР выполнена Гаммалом Дмитрием Михайловичем
+  </footer>
+
+  <script>
+    const drivers = document.querySelectorAll('.driver');
+    const voteResult = document.getElementById('vote-result');
+
+    drivers.forEach(driver => {
+      driver.addEventListener('click', () => {
+        drivers.forEach(d => d.classList.remove('selected'));
+        driver.classList.add('selected');
+        voteResult.classList.add('visible');
+      });
+    });
+  </script>
+
+</body>
+</html>
