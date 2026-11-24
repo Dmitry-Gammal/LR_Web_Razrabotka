@@ -1,0 +1,203 @@
+{
+  "info": {
+    "_postman_id": "d57a6df2-0fc0-4ed1-8c76-04c0852d9899",
+    "name": "LR4 — Stocks API",
+    "description": "Демонстрация REST API карточек. Запустите сервер командой `npm run dev`, затем выполняйте запросы по порядку. Созданный ID автоматически сохраняется для запросов получения, редактирования и удаления.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Получить список карточек",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/stocks"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Список получен', function () {",
+              "    pm.response.to.have.status(200);",
+              "    pm.expect(pm.response.json()).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "2. Добавить карточку (JSON-шаблон)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"src\": \"https://example.com/image.jpg\",\n  \"title\": \"{{newStockTitle}}\",\n  \"text\": \"Описание новой карточки\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/stocks"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Карточка создана', function () {",
+              "    pm.response.to.have.status(201);",
+              "    const stock = pm.response.json();",
+              "    pm.expect(stock.id).to.be.a('number');",
+              "    pm.expect(stock.title).to.eql(pm.collectionVariables.get('newStockTitle'));",
+              "    pm.collectionVariables.set('stockId', String(stock.id));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "3. Получить карточку по ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/stocks/{{stockId}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Карточка найдена', function () {",
+              "    pm.response.to.have.status(200);",
+              "    pm.expect(String(pm.response.json().id)).to.eql(pm.collectionVariables.get('stockId'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "4. Редактировать карточку (PATCH-шаблон)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"{{updatedStockTitle}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/stocks/{{stockId}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Карточка обновлена', function () {",
+              "    pm.response.to.have.status(200);",
+              "    pm.expect(pm.response.json().title).to.eql(pm.collectionVariables.get('updatedStockTitle'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "5. Удалить карточку",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/stocks/{{stockId}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Карточка удалена', function () {",
+              "    pm.response.to.have.status(204);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "6. Получить список с фильтрацией",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/stocks?title={{filterTitle}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Список отфильтрован по названию', function () {",
+              "    pm.response.to.have.status(200);",
+              "    const stocks = pm.response.json();",
+              "    const filter = pm.collectionVariables.get('filterTitle').toLowerCase();",
+              "    pm.expect(stocks).to.be.an('array');",
+              "    pm.expect(stocks.every(stock => stock.title.toLowerCase().includes(filter))).to.eql(true);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "stockId",
+      "value": ""
+    },
+    {
+      "key": "newStockTitle",
+      "value": "Тестовая новость McLaren"
+    },
+    {
+      "key": "updatedStockTitle",
+      "value": "Обновлённая тестовая новость McLaren"
+    },
+    {
+      "key": "filterTitle",
+      "value": "McLaren"
+    }
+  ]
+}

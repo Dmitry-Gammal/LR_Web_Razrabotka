@@ -1,0 +1,8 @@
+$kind: collection
+description: Демонстрация REST API карточек. Запустите сервер командой `npm run dev`, затем выполняйте запросы по порядку. Созданный ID автоматически сохраняется для запросов получения, редактирования и удаления.
+variables:
+  baseUrl: http://localhost:3000
+  stockId: ""
+  newStockTitle: Тестовая новость McLaren
+  updatedStockTitle: Обновлённая тестовая новость McLaren
+  filterTitle: McLaren

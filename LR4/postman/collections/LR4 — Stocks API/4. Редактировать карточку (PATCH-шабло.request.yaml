@@ -1,0 +1,21 @@
+$kind: http-request
+name: 4. Редактировать карточку (PATCH-шаблон)
+url: "{{baseUrl}}/stocks/{{stockId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "{{updatedStockTitle}}"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Карточка обновлена', function () {
+          pm.response.to.have.status(200);
+          pm.expect(pm.response.json().title).to.eql(pm.collectionVariables.get('updatedStockTitle'));
+      });
+    language: text/javascript
+order: 4000

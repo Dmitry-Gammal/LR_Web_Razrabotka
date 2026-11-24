@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/stocks?title={{filterTitle}}"
+method: GET
+queryParams:
+  title: "{{filterTitle}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Список отфильтрован по названию', function () {
+          pm.response.to.have.status(200);
+          const stocks = pm.response.json();
+          const filter = pm.collectionVariables.get('filterTitle').toLowerCase();
+          pm.expect(stocks).to.be.an('array');
+          pm.expect(stocks.every(stock => stock.title.toLowerCase().includes(filter))).to.eql(true);
+      });
+    language: text/javascript
+order: 6000

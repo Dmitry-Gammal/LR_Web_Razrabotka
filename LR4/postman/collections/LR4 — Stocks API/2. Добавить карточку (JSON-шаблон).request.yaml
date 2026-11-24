@@ -1,0 +1,25 @@
+$kind: http-request
+url: "{{baseUrl}}/stocks"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "src": "https://example.com/image.jpg",
+      "title": "{{newStockTitle}}",
+      "text": "Описание новой карточки"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Карточка создана', function () {
+          pm.response.to.have.status(201);
+          const stock = pm.response.json();
+          pm.expect(stock.id).to.be.a('number');
+          pm.expect(stock.title).to.eql(pm.collectionVariables.get('newStockTitle'));
+          pm.collectionVariables.set('stockId', String(stock.id));
+      });
+    language: text/javascript
+order: 2000
