@@ -6,7 +6,7 @@ export class ProductCardComponent {
     getHTML(data) {
         const number = String(data.id).padStart(2, "0");
         return `
-            <article class="news-card">
+            <article class="news-card h-100">
                 <div class="news-num">${number}</div>
                 <p class="news-text" id="open-card-${data.id}" data-id="${data.id}" tabindex="0" role="button">
                     ${data.title}: ${data.text}

@@ -5,7 +5,7 @@ export class ProductComponent {
 
     getHTML(data) {
         return `
-            <article class="detail-card">
+            <article class="detail-card d-grid">
                 <img src="${data.src}" alt="${data.title}">
                 <div class="detail-card__body">
                     <span class="detail-card__meta">${data.category} · ${data.date}</span>

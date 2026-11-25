@@ -5,12 +5,12 @@ export class HeaderComponent {
 
     getHTML() {
         return `
-            <header class="site-header">
+            <header class="site-header d-flex align-items-center justify-content-between">
                 <div class="logo">
                     <span class="logo-mark">MCLAREN</span>
                     <span class="logo-sub">RACING</span>
                 </div>
-                <nav class="main-nav">
+                <nav class="main-nav d-flex">
                     <button id="home-button" class="nav-link" type="button">Домой</button>
                     <button id="calculator-button" class="nav-link" type="button">Калькулятор</button>
                     <a href="https://github.com/Dmitry-Gammal/LR_Web_Razrabotka"

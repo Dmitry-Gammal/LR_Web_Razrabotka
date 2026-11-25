@@ -11,7 +11,7 @@ export class CalculatorComponent {
     getHTML() {
         return `
             <section class="tab-content active">
-                <div class="calculator">
+                <div class="calculator d-inline-block text-center">
                     <div id="result" class="result">0</div>
                     <div>
                         <div>

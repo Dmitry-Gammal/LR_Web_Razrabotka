@@ -39,7 +39,7 @@ export class MainPage {
                     </div>
                 </div>
 
-                <div class="news-tools">
+                <div class="news-tools d-flex align-items-center justify-content-end">
                     <input id="news-search" type="search" placeholder="Поиск новостей" aria-label="Поиск новостей">
                     <select id="news-category" aria-label="Фильтр по категории">
                         <option value="">Все категории</option>
